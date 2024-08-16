@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mynote
+spec:
+   replicas: 1
+   selector:
+    matchLabels:
+      name: deployment
+    template:
+      metadata:
+        name: sakshetty
+        labels:
+          name: deployment
+      spec:
+       containers:
+         - name: notebook
+           image: sakit333/mynote:latest
+           imagePullPolicy: Always
+           ports:
+           - containerPort: 8000
